@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EDELIA'S COFFEE ORDER FORM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500&family=Great+Vibes&family=Alex+Brush&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: url('lili.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Poppins', sans-serif;
+      color: #fefaf4;
+    }
+    .shop-title {
+      text-align: center;
+      color: #fff8e1;
+      margin-top: 30px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+    .shop-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      color: #fef8e1;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+    }
+    .shop-title p {
+      font-style: italic;
+      font-size: 18px;
+      color: #f9d9b4;
+      margin: 0;
+    }
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 70px;
+      width: 100%;
+      max-width: 1150px;
+      margin-top: 30px;
+      padding: 0 30px;
+    }
+    .form-container {
+      background: none;
+      border: none;
+      padding: 0;
+      width: 360px;
+      font-size: 14px;
+    }
+    .form-container h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      color: #fce7c8;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+    }
+    label {
+      font-weight: 500;
+      font-size: 13px;
+      margin-top: 8px;
+      display: block;
+      color: #fff9ec;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 90%;
+      padding: 7px;
+      border: 1.5px solid rgba(255, 221, 186, 0.6);
+      border-radius: 6px;
+      font-size: 13px;
+      margin-bottom: 8px;
+      background: none;
+      color: #fffaf4;
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255,255,255,0.6);
+    }
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: none;
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 10px;
+      padding-right: 25px;
+      color: #fff;
+    }
+    select option {
+      color: #000;
+      background-color: #fff;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #f5c587;
+      outline: none;
+      box-shadow: 0 0 10px rgba(243,200,146,0.6);
+    }
+    #contact, #deliveryDate { width: 70%; }
+    #address { width: 95%; height: 70px; resize: none; }
+    .radio-group { margin-bottom: 10px; font-size: 13px; color: #fff; }
+    .flavor-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      margin-bottom: 8px;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+    .flavor-option select {
+      width: 85px;
+      padding: 5px;
+      border-radius: 5px;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+    }
+    .flavor-option select:hover { cursor: pointer; }
+    .total-price {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 12px;
+      font-size: 15px;
+      color: #fff8e1;
+      background: none;
+      box-shadow: none;
+    }
+    button {
+      background-color: #8b5a2b;
+      color: #fff9f0;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 70%;
+      margin: 12px auto 0;
+      display: block;
+      transition: 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+    button:hover {
+      background-color: #5c3a1a;
+      box-shadow: 0 0 15px rgba(255,215,160,0.7);
+    }
+    .right-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 350px;
+      width: 450px;
+    }
+    .description-box {
+      background: none;
+      border: none;
+      box-shadow: none;
+      color: #fffbe6;
+      font-family: 'Alex Brush', cursive;
+      font-size: 40px;
+      line-height: 1.8;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    .description-box h2 {
+      font-family: 'Alex Brush', cursive;
+      font-size: 56px;
+      margin-bottom: 14px;
+      color: #fff9e6;
+      letter-spacing: 1px;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+    }
+    .receipt {
+      display: none;
+      margin-top: 25px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      width: 320px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      color: #3c2618;
+      font-size: 14px;
+    }
+    .receipt h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 10px;
+      color: #5b3923;
+    }
+    .receipt hr {
+      border: none;
+      height: 1px;
+      background-color: #b07a57;
+      margin: 8px 0;
+    }
+    .receipt p { margin: 4px 0; text-align: left; }
+    .receipt strong { color: #000; }
+  </style>
+</head>
+<body>
+  <div class="shop-title">
+    <h1>EDELIA'S COFFEE SHOP</h1>
+    <p>Taste the Tradition</p>
+  </div>
+
+  <div class="content">
+    <div class="form-container">
+      <h1>Order Form</h1>
+      <form id="orderForm">
+        <label>Full Name:</label>
+        <input type="text" maxlength="30" required>
+        <label>Email:</label>
+        <input type="email" required>
+        <label>Address:</label>
+        <textarea id="address" maxlength="150" required placeholder="Enter delivery address"></textarea>
+        <label>Contact Number:</label>
+        <input type="text" id="contact" maxlength="11" pattern="[0-9]{11}" required placeholder="09123456789">
+        <label>Preferred Delivery Date:</label>
+        <input type="date" id="deliveryDate" required>
+
+        <!-- Size Selection -->
+        <label>Size:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="size" value="Short" required> Short</label>
+          <label><input type="radio" name="size" value="Tall"> Tall</label>
+          <label><input type="radio" name="size" value="Grande"> Grande</label>
+        </div>
+
+        <!-- Temperature Selection -->
+        <label>Temperature:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="temperature" value="Hot" required> Hot</label>
+          <label><input type="radio" name="temperature" value="Cold"> Cold</label>
+        </div>
+
+        <!-- Original Flavor -->
+        <label>Flavors:</label>
+        <div class="flavor-option">
+          <span>Spanish Latte (₱100 / ₱120 / ₱140)</span>
+          <select class="flavor" data-name="spanish">
+            <option value="0"></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
+        <!-- Additional Drinks -->
+        <label>Additional Drinks:</label>
+        <div class="flavor-option">
+          <span>Mocha Latte (₱110 / ₱130 / ₱150)</span>
+          <select class="flavor" data-name="mocha">
+            <option value="0"></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="flavor-option">
+          <span>Caramel Macchiato (₱120 / ₱140 / ₱160)</span>
+          <select class="flavor" data-name="caramel">
+            <option value="0"></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
+        <!-- Add-ons -->
+        <label>Add-ons:</label>
+        <div class="flavor-option">
+          <span>Vanilla Syrup (₱20 each)</span>
+          <select class="flavor" data-name="vanillaSyrup">
+            <option value="0"></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="flavor-option">
+          <span>Hazelnut Syrup (₱25 each)</span>
+          <select class="flavor" data-name="hazelnutSyrup">
+            <option value="0"></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
+        <!-- Payment -->
+        <label>Payment Method:</label>
+        <select id="paymentMethod" required>
+          <option value="">Select Payment</option>
+          <option value="Cash">Cash on Delivery</option>
+          <option value="Gcash">Gcash</option>
+        </select>
+        <div id="cardInfo" style="display:none;">
+          <label>Card Number:</label>
+          <input type="text" id="cardNumber" maxlength="16" pattern="[0-9]{16}">
+        </div>
+
+        <label>Amount Paid:</label>
+        <input type="number" id="amountPaid" placeholder="₱" min="0">
+        <div class="total-price" id="totalPrice">Total: ₱0</div>
+        <button type="submit">Submit Order</button>
+      </form>
+    </div>
+
+    <div class="right-section">
+      <div class="description-box">
+        <h2>Edelia’s Coffee</h2>
+        <p>Where every cup tells a story of passion and perfection. Brewed from the finest beans, blended with heart. Edelia’s Coffee brings a luxurious sip of comfort, elegance, and artistry in every drop.</p>
+      </div>
+
+      <div class="receipt" id="receiptBox">
+        <h2>Order Receipt</h2>
+        <hr>
+        <div id="receiptContent"></div>
+        <hr>
+        <p style="text-align:center;"><em>Thank you for choosing Edelia’s Coffee!</em></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const prices = { 
+      spanish:{Short:100,Tall:120,Grande:140}, 
+      mocha:{Short:110,Tall:130,Grande:150}, 
+      caramel:{Short:120,Tall:140,Grande:160}, 
+      vanillaSyrup:{Short:20,Tall:20,Grande:20}, 
+      hazelnutSyrup:{Short:25,Tall:25,Grande:25} 
+    };
+
+    const form = document.getElementById("orderForm");
+    const totalDisplay = document.getElementById("totalPrice");
+    const receiptBox = document.getElementById("receiptBox");
+    const receiptContent = document.getElementById("receiptContent");
+    const paymentSelect = document.getElementById("paymentMethod");
+    const cardInfo = document.getElementById("cardInfo");
+    let total = 0;
+
+    paymentSelect.addEventListener("change",()=>{cardInfo.style.display=paymentSelect.value==="Card"?"block":"none";});
+
+    function computeTotal(){
+      const size=form.querySelector('input[name="size"]:checked'); 
+      if(!size){ totalDisplay.textContent="Total: ₱0"; return; } 
+      const selectedSize=size.value; 
+      total=0; 
+      const selects=form.querySelectorAll(".flavor"); 
+      selects.forEach(select=>{
+        const quantity=parseInt(select.value); 
+        const name=select.dataset.name; 
+        if(quantity>0) total+=prices[name][selectedSize]*quantity;
+      }); 
+      totalDisplay.textContent="Total: ₱"+total.toLocaleString();
+    }
+
+    form.querySelectorAll('input[name="size"], .flavor').forEach(el=>{el.addEventListener("change",computeTotal);});
+
+    form.addEventListener("submit",e=>{
+      e.preventDefault(); 
+      const amountPaid=parseFloat(document.getElementById("amountPaid").value||0); 
+      const change=amountPaid-total; 
+      const name=form.querySelector('input[type="text"]').value; 
+      const payMethod=paymentSelect.value; 
+      const temp=form.querySelector('input[name="temperature"]:checked')?.value || '';
+      const date=new Date().toLocaleString(); 
+      let breakdown=""; 
+      form.querySelectorAll(".flavor").forEach(select=>{
+        const q=parseInt(select.value); 
+        const n=select.dataset.name; 
+        const size=form.querySelector('input[name="size"]:checked')?.value; 
+        if(q>0&&size) breakdown+=`<li>${n.charAt(0).toUpperCase()+n.slice(1)} - ${q} pc(s) @ ₱${prices[n][size]} = ₱${(prices[n][size]*q).toLocaleString()}</li>`;
+      }); 
+      receiptContent.innerHTML=`<p><strong>Customer:</strong> ${name}</p><p><strong>Payment:</strong> ${payMethod}</p><p><strong>Temperature:</strong> ${temp}</p><p><strong>Date:</strong> ${date}</p><p><strong>Order Details:</strong></p><ul style="margin:5px 0 10px 20px;">${breakdown||'<li>No items ordered.</li>'}</ul><p><strong>Total Amount:</strong> ₱${total.toLocaleString()}</p><p><strong>Amount Paid:</strong> ₱${amountPaid.toLocaleString()}</p><p><strong>Change:</strong> ₱${change>=0?change.toLocaleString():'<span style="color:red;">Insufficient Payment</span>'}</p>`; 
+      receiptBox.style.display="block";
+    });
+  </script>
+</body>
+</html>
