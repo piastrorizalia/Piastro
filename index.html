@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizalia Mae B. Piastro | Tab Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Montserrat', sans-serif; color:#fff; background:#0b001a; scroll-behavior: smooth; }
+
+/* HEADER NAV */
+header {
+  width:100%; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; background:rgba(11,0,26,0.95); position:fixed; top:0; z-index:1000;
+}
+header h1 { font-family:'Pacifico', cursive; font-size:2rem; color:#ff77ff; }
+header nav a {
+  margin-left:1.5rem; font-weight:600; color:#ff77ff; text-decoration:none; cursor:pointer; transition:0.3s;
+}
+header nav a.active, header nav a:hover { color:#fff; text-shadow:0 0 15px #ff77ff; }
+
+/* SECTIONS */
+section { display:none; min-height:100vh; width:100%; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem 2rem; background-size:cover; background-position:center; transition:0.5s; }
+section.active { display:flex; flex-direction:column; animation:fadeIn 1s ease-in; }
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(30px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* HEADINGS */
+h2 { font-size:3rem; color:#ff77ff; margin-bottom:1rem; text-shadow:0 0 10px #ff77ff; }
+p { font-size:1.1rem; max-width:700px; margin:0 auto 1rem; line-height:1.7; color:#f2f2f2; }
+
+/* BUTTONS */
+a.btn, button, .view-btn {
+  padding:0.8rem 1.5rem; background:#ff77ff; color:#fff; border:none; border-radius:5px; font-weight:600; cursor:pointer; text-decoration:none; margin-top:1rem; transition:0.3s;
+}
+a.btn:hover, button:hover, .view-btn:hover {
+  transform:scale(1.05); box-shadow:0 0 20px #ff77ff;
+}
+
+/* HORIZONTAL SCROLL PROJECTS */
+.projects { display:flex; gap:1.5rem; overflow-x:auto; padding:1rem; scroll-behavior:smooth; white-space:nowrap; }
+.project-card {
+  min-width:250px; background:rgba(28,0,51,0.9); border-radius:10px; overflow:hidden; transition:0.3s; padding-bottom:1rem; flex:0 0 auto; cursor:pointer; box-shadow:0 0 10px #ff77ff55;
+}
+.project-card img { width:100%; height:180px; object-fit:cover; border-bottom:2px solid #ff77ff; }
+.project-card:hover { transform:scale(1.05); box-shadow:0 0 25px #ff77ff; }
+.project-card p { padding:0.8rem; color:#fff; font-weight:500; }
+
+/* HOME LOGO */
+#home .logo { width:200px; height:200px; border-radius:50%; margin-bottom:1.5rem; object-fit:cover; border:3px solid #ff77ff; box-shadow:0 0 25px #ff77ff; transition:0.5s; }
+#home .logo:hover { transform:scale(1.05); }
+
+/* ABOUT TEXT BOX */
+.about-box { background: rgba(0,0,0,0.65); padding: 2rem; border-radius: 15px; max-width: 850px; margin: 0 auto; box-shadow:0 0 15px #ff77ff55; }
+
+/* CONTACT BOX */
+.contact-box { background: rgba(0,0,0,0.65); padding: 2rem; border-radius: 15px; max-width: 500px; margin: 1rem auto; text-align:left; box-shadow:0 0 15px #ff77ff55; }
+
+/* CONTACT LINKS */
+.contact-box a { color:#ff77ff; text-decoration:none; transition:0.3s; }
+.contact-box a:hover { color:#fff; text-shadow:0 0 10px #ff77ff; }
+
+/* CONTACT FORM */
+form input, form textarea { padding:12px; border-radius:8px; border:none; outline:none; width:100%; margin-bottom:10px; }
+form button { background:#ff77ff; font-weight:600; transition:0.3s; }
+form button:hover { transform:scale(1.05); box-shadow:0 0 15px #ff77ff; }
+
+/* TOAST */
+#toast {
+  visibility:hidden;
+  min-width:250px;
+  background-color:#28a745;
+  color:#fff;
+  text-align:center;
+  border-radius:5px;
+  padding:16px;
+  position:fixed;
+  z-index:10000;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  font-weight:600;
+  box-shadow:0 0 15px #ff77ff;
+}
+
+/* MEDIA */
+@media(max-width:768px){
+  section { padding:5rem 1rem 2rem; }
+  #home .logo { width:150px; height:150px; }
+  h2 { font-size:2.2rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Rizzae_meyy</h1>
+  <nav>
+    <a class="active" data-target="home">Home</a>
+    <a data-target="about">About</a>
+    <a data-target="projects">Projects</a>
+    <a data-target="contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="active" style="background:url('lia.jpg') center/cover no-repeat;">
+  <img src="mimi.jpg" alt="Logo" class="logo">
+  <h2>Hello! I'm Rizalia Mae B. Piastro</h2>
+  <p>A web enthusiast and IT student at OMSC San Jose Campus, I love turning ideas into interactive websites and exploring the endless possibilities of technology.</p>
+  <p>Dive into my projects below and discover how I blend creativity with code!</p>
+  <a href="#" class="btn" id="viewProjects">See My Work</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:url('fam.jpg') center/cover no-repeat; background-size:cover;">
+  <h2>About Me</h2>
+  <div class="about-box">
+    <p>Hello! My name is <strong>Rizalia Mae B. Piastro</strong>, 20 years old, born on November 14, 2005. I live in Main Barrio, San Agustin, San Jose, Occidental Mindoro, and currently study at <strong>OMSC San Jose Campus</strong> as an IT student. Before diving into IT, I explored the world of Architecture, which deepened my love for arts and creativity — a passion I now express through web development.</p>
+    <p>I am blessed with a loving family who inspires me every day. My mother, <strong>Nerissa B. Piastro</strong>, is a dedicated teacher at Naibuan Elementary School, and my father is a hardworking farmer. We share our home with three dogs — Yanie, Barnie, and Combie — and more than 15 cats, who bring so much joy and energy to our household.</p>
+    <p>I enjoy a variety of hobbies that help me grow both personally and creatively. I love watching sunsets by the sea, joining fun runs, and riding my motorbike — especially joy rides that give me a sense of freedom. I also love cooking and experimenting with new dishes to improve my skills, and exploring coffee shops and local food spots. My favorite foods include spaghetti, shawarma, pizza, cake, fries, and many more.</p>
+    <p>I enjoy arts and creativity in all forms, playing chess and traditional games like sungka. My favorite colors, maroon and pink, reflect my bold, vibrant, and energetic personality. I take pride in blending creativity with technology in my web projects, using every opportunity to challenge myself and learn something new.</p>
+    <p>I believe that life is about growth, curiosity, and embracing new experiences. Whether through technology, arts, or personal hobbies, I strive to create, learn, and share my journey with others.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:url('projects-bg.jpg') center/cover no-repeat;">
+  <h2>My Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <img src="book.jpg" alt="Project 1">
+      <p>The Story in the Book</p>
+      <a href="Story-Lia.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="sisig.jpg" alt="Project 2">
+      <p>Talong na Sisig Recipe</p>
+      <a href="Sisig-Lia.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="coffee.jpg" alt="Project 3">
+      <p>Edelia Coffee Delivery</p>
+      <a href="EDELIA COFFEE FORM.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="bicycle.jpg" alt="Project 4">
+      <p>Magazine Layout</p>
+      <a href="CSS-Piastro.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="calorie.jpg" alt="Project 5">
+      <p>Calorie Converter</p>
+      <a href="CONVERSION-Piastro.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:url('contact-bg.jpg') center/cover no-repeat;">
+  <h2>Contact Me</h2>
+  <p>Interested in working together? Feel free to reach out!</p>
+
+  <div class="contact-box">
+    <p><strong>Email:</strong> <a href="mailto:piastrorizalia@gmail.com">piastrorizalia@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+639985203942">0998 520 3942</a></p>
+    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/rizaliamae.piastro.1" target="_blank">Rizalia Mae B. Piastro</a></p>
+    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/rizzae_meyy" target="_blank">@rizzae_meyy</a></p>
+  </div>
+
+  <form id="contactForm" action="https://formsubmit.co/piastrorizalia@gmail.com" method="POST" style="display:flex; flex-direction:column; gap:10px; max-width:400px; margin:1rem auto;">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <input type="hidden" name="_captcha" value="false">
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div id="toast">Message sent successfully!</div>
+</section>
+
+<script>
+// NAVIGATION
+const navLinks = document.querySelectorAll('header nav a');
+const sections = document.querySelectorAll('section');
+
+function showSection(target) {
+  sections.forEach(sec => sec.classList.remove('active'));
+  document.getElementById(target).classList.add('active');
+  navLinks.forEach(link => link.classList.remove('active'));
+  document.querySelector(`nav a[data-target="${target}"]`).classList.add('active');
+}
+
+navLinks.forEach(link => link.addEventListener('click', () => showSection(link.dataset.target)));
+
+// VIEW PROJECTS BUTTON
+document.getElementById('viewProjects').addEventListener('click', e => {
+  e.preventDefault();
+  showSection('projects');
+});
+
+// CONTACT FORM WITH TOAST
+const contactForm = document.getElementById('contactForm');
+const toast = document.getElementById('toast');
+
+contactForm.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const formData = new FormData(contactForm);
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      toast.textContent = '✅ Your message has been sent successfully!';
+      toast.style.backgroundColor = '#28a745';
+      toast.style.visibility = 'visible';
+      contactForm.reset();
+      setTimeout(() => { toast.style.visibility = 'hidden'; }, 4000);
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (error) {
+    toast.textContent = '❌ Oops! Something went wrong. Please try again.';
+    toast.style.backgroundColor = '#dc3545';
+    toast.style.visibility = 'visible';
+    setTimeout(() => { toast.style.visibility = 'hidden'; }, 4000);
+    console.error('Form submission error:', error);
+  }
+});
+</script>
+
+<!-- COPYRIGHT FOOTER -->
+<footer style="text-align:center; padding:1rem; background:rgba(11,0,26,0.95); color:#ff77ff; font-size:0.9rem; box-shadow:0 -2px 10px #ff77ff55; position:relative;">
+  &copy; 2025 Rizalia Mae B. Piastro. All rights reserved.
+</footer>
+
+</body>
+</html>
+
+</body>
+</html>
